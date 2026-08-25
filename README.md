@@ -1,4 +1,4 @@
-# Linux Privilege Escalation Automation Toolkit
+Linux Privilege Escalation Automation Toolkit
 
 A **detection-only** auditing tool that scans a Linux system for privilege
 escalation misconfigurations and produces a severity-ranked report — with
@@ -20,22 +20,22 @@ Requires Python 3.8+ and the `rich` library for terminal output.
 python3 main.py
 
 # Run specific modules only
-python3 main.py --modules suid,permissions,cron
+python3 main.py modules suid,permissions,cron
 
 # Include INFO-level findings in the terminal output (full inventory)
-python3 main.py --show-info
+python3 main.py show-info
 
 # Custom output directory
-python3 main.py --out-dir /tmp/audit_results
+python3 main.py out-dir /tmp/audit_results
 
 # Plain text, no ANSI colors (e.g. for CI logs)
-python3 main.py --no-color
+python3 main.py no-color
 
 # List every available module and exit
-python3 main.py --list-modules
+python3 main.py list-modules
 ```
 
-Outputs (written to `--out-dir`, default `./report_output`):
+Outputs (written to `out-dir`, default `./report_output`):
 - `privesc_report.txt` — plain-text report
 - `privesc_report.html` — styled HTML report (good for screenshots/presentations)
 - `privesc_report.json` — machine-readable report (CI pipelines, SIEM ingestion, further tooling)
