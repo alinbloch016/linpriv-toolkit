@@ -1,7 +1,7 @@
 # Linux Privilege Escalation Automation Toolkit
 
 A **detection-only** auditing tool that scans a Linux system for privilege
-escalation misconfigurations and produces a severity-ranked report — with
+escalation misconfigurations and produces a severity-ranked report with
 a polished, color-coded terminal UI and text/HTML/JSON report output.
 It never runs exploit code: every check is read-only enumeration.
 
