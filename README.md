@@ -1,4 +1,4 @@
-Linux Privilege Escalation Automation Toolkit
+# Linux Privilege Escalation Automation Toolkit
 
 A **detection-only** auditing tool that scans a Linux system for privilege
 escalation misconfigurations and produces a severity-ranked report — with
