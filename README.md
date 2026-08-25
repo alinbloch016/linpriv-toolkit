@@ -80,29 +80,3 @@ linpriv-toolkit/
 └── README.md
 ```
 
-## Design notes
-
-- **Detection only**: every command run is read-only (`find`, `ls`,
-  `systemctl show`, `sudo -n -l`, `getcap -r`, cron file reads,
-  `uname -a`). Nothing is written to the target system, no binaries are
-  invoked to test exploitability, no live exploit code exists anywhere
-  in the codebase.
-- **Severity model**: `CRITICAL > HIGH > MEDIUM > LOW > INFO`, sorted in
-  all output so the highest-risk findings surface first.
-- **Extending it**: to add a new check, create `modules/x_scan.py` with a
-  `scan()` function returning a list of `Finding` objects (see
-  `modules/common.py`), then register it in `MODULE_MAP` in `main.py`.
-- **CI-friendly**: `--no-color` plus the JSON report make this easy to
-  wire into a pipeline that fails a build on CRITICAL/HIGH findings.
-
-## Suggested next steps for your writeup
-
-1. Run it on a deliberately misconfigured test VM (a "vulnhub"-style box)
-   to generate findings across every category for your report.
-2. Take screenshots of the terminal UI + the HTML report for your
-   documentation deliverable — the color-coded panels screenshot well.
-3. Use the flowchart from the original project spec (System Info → SUID
-   → Permissions → Services → Cron → Kernel → [new checks] → Analysis →
-   Report) as your architecture diagram in Draw.io.
-4. For the "mitigation steps" deliverable, the `mitigation` field on
-   every `Finding` already gives you a starting point per issue type.
