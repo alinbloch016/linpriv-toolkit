@@ -35,18 +35,18 @@ python3 main.py --no-color
 python3 main.py --list-modules
 ```
 
-The report is written to `--out-dir` (default `./report_output/`) as
+The report is written to `out-dir` (default `./report_output/`) as
 `privesc_report.txt`.
 
 ## Workflow
 
 Following the project's four-step design:
 
-1. **System Information Collection** -- current user, groups, kernel
+1. **System Information Collection** - current user, groups, kernel
    version, OS release, whether the user is root or limited.
-2. **Privilege Escalation Vector Scanning** -- runs the five modules below.
-3. **Analysis Engine** -- ranks findings by severity.
-4. **Report Generation** -- exports a structured report with, for every
+2. **Privilege Escalation Vector Scanning** - runs the five modules below.
+3. **Analysis Engine** - ranks findings by severity.
+4. **Report Generation** - exports a structured report with, for every
    finding: the finding itself, its severity, its exploitation
    possibility, and suggested mitigation steps.
 
@@ -58,7 +58,7 @@ Following the project's four-step design:
 | Weak File & Directory Permissions | `permissions` | World-writable files/directories; permissions on `/etc/passwd`, `/etc/shadow`, `/etc/sudoers`, `/etc/group` |
 | Misconfigured Services | `services` | systemd services running as root with a writable `ExecStart` target; `sudo -l` NOPASSWD / `ALL=(ALL)` rules |
 | Cron Job Vulnerabilities | `cron` | Root-run cron entries (`/etc/crontab`, `/etc/cron.d`, `cron.{hourly,daily,weekly,monthly}`) that reference scripts writable by non-root users |
-| Kernel Exploit Detection | `kernel` | Kernel version and OS release, flagged if older than a staleness baseline (manual CVE cross-reference required -- no live exploits are attempted) |
+| Kernel Exploit Detection | `kernel` | Kernel version and OS release, flagged if older than a staleness baseline (manual CVE cross-reference required - no live exploits are attempted) |
 
 ## Project structure
 
@@ -80,8 +80,8 @@ linpriv-toolkit/
 
 ## Tools & technologies
 
-- **Python 3** -- implementation language
-- **rich** -- terminal output (colors, progress bars, panels)
+- **Python 3** - implementation language
+- **rich** - terminal output (colors, progress bars, panels)
 - Linux utilities invoked (read-only): `find`, `systemctl show`, `sudo -n -l`,
   `crontab` / `/etc/cron.*`, `uname -a`
 
