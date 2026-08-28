@@ -17,22 +17,22 @@ Requires Python 3.8+ and Linux (the checks read `/etc/shadow`, `systemctl`,
 
 ```bash
 # Run all five checks
-python3 main.py
+python main.py
 
 # Run specific modules only
-python3 main.py --modules suid,permissions,cron
+python main.py --modules suid,permissions,cron
 
 # Include INFO-level findings in the terminal output
-python3 main.py --show-info
+python main.py --show-info
 
 # Custom output directory
-python3 main.py --out-dir /tmp/audit_results
+python main.py --out-dir /tmp/audit_results
 
 # Plain text, no ANSI colors
-python3 main.py --no-color
+python main.py --no-color
 
 # List available modules
-python3 main.py --list-modules
+python main.py --list-modules
 ```
 
 The report is written to `out-dir` (default `./report_output/`) as
@@ -80,7 +80,7 @@ linpriv-toolkit/
 
 ## Tools & technologies
 
-- **Python 3** - implementation language
+- **Python** - implementation language
 - **rich** - terminal output (colors, progress bars, panels)
 - Linux utilities invoked (read-only): `find`, `systemctl show`, `sudo -n -l`,
   `crontab` / `/etc/cron.*`, `uname -a`
